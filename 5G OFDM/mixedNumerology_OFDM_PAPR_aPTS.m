@@ -4,7 +4,7 @@ close all;
 
 % 5G OFDM参数
 subCarrierSpacing = 30e3;  % 子载波间隔 30 kHz
-Lfft = 512;                % FFT大小
+Lfft = 1024;                % FFT大小
 numSymbols = 100;          % OFDM符号数量
 numSubcarriers = Lfft;     % 子载波数量
 cpLength = 128;            % 循环前缀长度

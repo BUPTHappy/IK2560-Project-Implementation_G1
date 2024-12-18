@@ -40,7 +40,7 @@ for jj=1:Nbits
         A(v,(1+(v-1)*Lfft/4):1:v*Lfft/4) = X((1+(v-1)*Lfft/4):1:v*Lfft/4); % 将X分成V个部分放入A中
     end
     a    = ifft(A,[],2); % 对每个部分做IFFT
-    % 门限函数（此处省略）
+    % 门限函数
     Vmin = 10; % 初始化最小值
     % 寻找最优辅助信息
     for n=1:Lchos
@@ -69,25 +69,12 @@ end
 
 % 绘图
 semilogy(PAPR1(1:1:end),1-cdf1(1:1:end),'-b',... % 绘制原始PAPR的CCDF
-         PAPR2(1:1:end),1-cdf2(1:1:end),'-r'); % 绘制PTS处理后的PAPR CCDF
+         PAPR2(1:1:end),1-cdf2(1:1:end),'-r', 'LineWidth', 2); % 绘制PTS处理后的PAPR CCDF
 legend('Orignal','PTS'); % 图例
-title('V=4'); % 标题
+title('Comparison of PAPR for basic OFDM using traditional PTS (V=4)'); % 标题
 xlabel('PAPR0 [dB]'); % X轴标签
 ylabel('CCDF (Pr[PAPR>PAPR0])'); % Y轴标签
 grid on; % 显示网格
-
-
-
-if Lfft==128
-   save QP_PTS1.mat PAPR1 PAPR2 cdf1 cdf2
-end
-if Lfft==256
-   save QP_PTS2.mat PAPR1 PAPR2 cdf1 cdf2
-end
-if Lfft==512
-   save QP_PTS3.mat PAPR1 PAPR2 cdf1 cdf2
-end
-
 
 
 
