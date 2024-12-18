@@ -4,7 +4,7 @@ Nffts=2.^[6:10];
 Npsk=2;
 M=2^Npsk;
 Nblk=1e3;
-Z_dBs=4:0.1:10;
+Z_dBs=2:0.1:10;
 N_Z_dBs=length(Z_dBs);
 CCDF_formula=@(N,sigma2,z) 1-((1-exp(-z.^2/(2*sigma2))).^N);
 
