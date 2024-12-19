@@ -24,12 +24,12 @@ for kk=1:length(Nffts)
     for jj= 1:N_Z_dBs
         CCDF_simulation(jj)=sum(x_CF>Z_dBs(jj))/Nblk;
     end
-    semilogy(Z_dBs,CCDF_theoretical,'-');
+    semilogy(Z_dBs,CCDF_theoretical,'-','LineWidth', 2);
     hold on;
     grid on;
-    semilogy(Z_dBs,CCDF_simulation,'*');
+    semilogy(Z_dBs,CCDF_simulation,'*','LineWidth', 0.8);
 end
-title('OFDM system with N-point FFT');
+title('CCDF of the PAPR of classic OFDM system without reduction');
 xlabel('PAPR0[dB]');
 ylabel('CCDF=Probability(PAPR>PAPR0)');
 legend('Theoretical','Simulation');
